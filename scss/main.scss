@@ -1,0 +1,269 @@
+$primary-color: #FFEFE7;
+$secondary-color: #FFDAC6;
+$tertiary-color: #BABD8D;
+$primary-text-color: #7C6A0A;
+$font-stack: "IBM Plex Sans",sans-serif;
+$paragraph-size: 1.5em;
+$quaternary-color: #FA9500;
+@mixin flexCenter($direction,$content,$align){
+    display: flex;
+    flex-direction: $direction;
+    justify-content: $content;
+    align-items: $align;
+}
+
+@mixin buttonStyle {
+    button{
+        background: none;
+        border-style: none;  
+    }
+   
+}
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+// html{
+//     // font-size: 62.5%;
+// }   
+body {
+    margin: 0px;
+    padding: 0px;
+    background-color: $primary-color;
+    font-family: $font-stack;
+}
+h3{
+    padding-top: 10px
+}
+nav {
+   @include flexCenter(row,space-between,center);
+    width: 100%;
+    height: 135px;
+    padding: 15px;
+    padding-right: 50px;
+    color: $primary-text-color;
+    p{
+        font-size: $paragraph-size;
+        font-weight: 400;
+        padding-left: 30px;
+    }
+    .icons{
+        display: flex;
+        flex-direction: row;
+        gap: 15px;
+        @include buttonStyle;
+        svg{
+            cursor: pointer;
+            &:hover{
+                transform: scale(1.1);   
+            }      
+        }
+
+        // button{
+        //     background: none;
+        //     border-style: none;
+        // }
+    }
+}
+article{
+    width: auto;
+    color: $primary-text-color;
+    padding-left: 45px;
+    padding-right: 45px;
+    padding-top: 70px;
+    @include flexCenter(row,space-between,center );
+
+    .impact-section{
+      @include flexCenter(column,space-evenly,flex-start );
+        gap: 25px;
+        padding-top: 50px;
+    }
+    h1{
+        font-size: 3em;
+        font-weight: bold;
+        margin-bottom: 30px;
+        padding: 0;
+        margin: 0;
+    }
+    p{
+        font-size: $paragraph-size;
+        margin-bottom: 50px;
+    }
+    @include buttonStyle;
+    button{
+        width: 261px;
+        height: 73px;
+        padding: 20px;
+        background-color: $quaternary-color;
+        border-radius: 35px;
+        color: white;
+        // font-size: 1em;
+        font-size: 23px;
+        text-align: start;
+        padding-left: 46px;
+        cursor: pointer;
+        &:hover{
+            transform: scale(1.1);
+        }
+    }
+    img{
+        width: 35vh;
+        height: 100%;
+        border-radius: 19px;  
+        object-fit: cover;        
+    }        
+}  
+section{
+    width: auto;
+    height: auto;
+    padding: 60px;
+    margin-top: 30px;
+    h2{
+        color: $primary-text-color;
+        font-size: 2em;
+    }
+    .healthcare{
+        padding-bottom: 60px;
+    
+        h2{
+            font-weight: 300;
+            padding-bottom: 60px;
+        }
+        .card-section{
+            @include flexCenter(row,space-evenly,center );
+            column-gap: 200px;
+            row-gap: 80px;
+            flex-wrap: wrap;
+        }
+        .product-card{
+            width: 18vw;
+            height: auto;
+            background-color: $secondary-color;
+            color: $primary-text-color;
+            padding: 20px;
+            border-radius: 8px;
+            .icon{
+                width: 100%;
+                height: auto;
+                display: flex;
+                justify-content: flex-end;
+                padding-bottom: 12px;
+                margin-left: 10px;
+            }
+    }
+   
+        .product-image{
+            width: 100%;
+            height: auto;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            img{
+                width: 12vw;
+                height: 30vh;
+                object-fit: cover;
+                border-radius: 6px;
+            }
+        }
+    }
+    .furniture{
+        @extend .healthcare;
+        .product-card{
+            background-color: $tertiary-color;
+            color: white;
+        }
+    }
+    .about-us{
+        margin-top: -100px;
+        padding-bottom: 80px;
+        h2{
+            font-weight:bold ;
+            padding-bottom: 60px;
+            text-align: center;
+     
+        }
+        .mission-section{
+            @include flexCenter(row,space-evenly ,center);
+            .earth{
+                $text-color:#E86424;
+                width: 40vw;
+                display: flex;
+                gap: 40px;
+                color: $text-color;
+                align-items: center;
+                img{
+                    object-fit: contain;
+                }
+                p{
+                    text-align: center;
+                    font-size: $paragraph-size;
+                }
+            }
+        }
+        .innovation{
+            @extend .earth;
+        }
+}
+}
+        .gallery{
+            h2{
+                font-weight: bold;
+                padding-bottom: 60px
+            }
+
+            .gallery-images{
+                @include flexCenter(row,space-between ,center);
+                gap: 15px;
+                img{
+                    width: 28vw;
+                    height: 45vh;
+                    object-fit: cover;
+                    object-position: 5px 35%;
+                    border-radius: 16px;
+                   &:hover{
+                        transform: scale(1.1);
+                    }
+                }
+            }
+
+            }
+            .location{
+                $text-color:#E86424;
+                color: $text-color;
+              
+                h2{
+                    padding-bottom: 60px;
+                    padding-top: 30px;
+                }
+                .map{
+                    @include flexCenter(row,center ,center );
+                    padding-bottom:50px;
+                }
+                h3{
+                    font-size: 25px;
+                    font-weight: 400;
+                }
+                p{
+                    padding-top: 20px;
+                    font-size: 20px;
+                    font-weight: 400;
+                }
+            }
+
+
+    footer {
+    $background: #FA9500;
+    color: #FFEFE7;
+    background-color: $quaternary-color;
+    width: 100%;
+    line-height: 30px;
+    height: auto;
+    padding: 40px;
+   
+        .social-media{
+            @include flexCenter(row,center ,center );
+            gap: 40px;
+            cursor: pointer;
+        }
+}
